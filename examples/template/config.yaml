@@ -1,0 +1,14 @@
+---
+# basic
+ni: 20
+nk: 20
+nplus: 2
+
+# reference model
+file_rmodel: rmodel.dat
+
+# updated model
+file_umodel: umodel.dat
+## square
+width_square: 6
+center_square: [10, 10]

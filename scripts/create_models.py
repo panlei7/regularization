@@ -1,4 +1,4 @@
-!/usr/bin/env python3
+#!/usr/bin/env python3
 
 import numpy as np
 import yaml
@@ -11,7 +11,7 @@ class Model:
         self.nplus = nplus
         self.nx = ni + nplus * 2
         self.nz = nk + nplus * 2
-        self.data = np.zeros(self.nx, self.nz)
+        self.data = np.zeros([self.nx, self.nz])
 
     def save(self, filenm):
         self.data.tofile(filenm)
@@ -29,9 +29,9 @@ class UpdatedModel(Model):
         nw = int(width)
         if nw > ni or nw > nk:
             raise ValueError("width is too large")
-        cx, cz = [a + self.plus for a in [cx, cz]]
-        nw_half = nw / 2
-        self.data[cx-nw_half:cx+nw_half, cz-nw_half, cz+nw_half] = 1.
+        cx, cz = [a + self.nplus for a in [cx, cz]]
+        nw_half = nw // 2
+        self.data[cx-nw_half:cx+nw_half, cz-nw_half:cz+nw_half] = 1.
 
 
 if __name__ == '__main__':
@@ -43,12 +43,12 @@ if __name__ == '__main__':
     nplus = config['nplus']
     file_rmodel = config['file_rmodel']
     file_umodel = config['file_umodel']
-    center = config['center']
-    width = config['width']
+    center_square = config['center_square']
+    width_square = config['width_square']
 
     rmodel = ReferenceModel(ni, nk, nplus)
     rmodel.save(file_rmodel)
 
     umodel = UpdatedModel(ni, nk, nplus)
-    umodel.square(center, width)
+    umodel.square(center_square, width_square)
     umodel.save(file_umodel)
