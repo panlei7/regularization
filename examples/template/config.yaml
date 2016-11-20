@@ -5,10 +5,10 @@ nk: 20
 nplus: 2
 
 # reference model
-file_rmodel: rmodel.dat
+file_rmodel: rmodel.h5
 
 # updated model
-file_umodel: umodel.dat
+file_umodel: umodel.h5
 ## square
 width_square: 6
 center_square: [10, 10]

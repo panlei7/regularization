@@ -2,6 +2,8 @@
 
 import numpy as np
 import yaml
+import h5py
+
 
 class Model:
 
@@ -14,7 +16,10 @@ class Model:
         self.data = np.zeros([self.nx, self.nz])
 
     def save(self, filenm):
-        self.data.tofile(filenm)
+        h5f = h5py.File(filenm, 'w')
+        h5f.create_dataset('dataset_1', data=self.data)
+        h5f.close()
+
 
 class ReferenceModel(Model):
     pass
