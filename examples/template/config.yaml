@@ -9,6 +9,10 @@ file_rmodel: rmodel.h5
 
 # updated model
 file_umodel: umodel.h5
+
 ## square
 width_square: 6
 center_square: [10, 10]
+
+file_norm: norm.h5
+file_deriv: deriv.h5

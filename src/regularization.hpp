@@ -7,19 +7,30 @@
 class Regularization
 {
 public:
-  explicit Regularization(std::string &filenm);
+  explicit Regularization(std::string& filenm);
+  void load();
+  virtual void cal_fitness();
+  virtual void cal_gradient();
+  void print_fitness(std::string& method);
 
 protected:
-  void load(std::string &filenm);
   void save(std::string &filenm);
 
-private:
   int ni_;
   int nk_;
   int nx_;
   int nz_;
+  int ni1_;
+  int ni2_;
+  int nk1_;
+  int nk2_;
   int nplus_;
-  arma::mat data_;
+  std::string file_umodel_;
+  std::string file_rmodel_;
+
+  arma::mat umodel_; // updated model
+  arma::mat rmodel_; // reference model
+
   arma::mat gradient_;
   double fitness_;
 };
