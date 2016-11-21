@@ -4,11 +4,13 @@
 #include <armadillo>
 #include <yaml-cpp/yaml.h>
 
-NormDamping::NormDamping(std::string &filenm):
+NormDamping::NormDamping(const std::string &filenm):
   Regularization(filenm)
 {
   YAML::Node config = YAML::LoadFile(filenm);
   output_file_ = config["file_norm"].as<std::string>();
+
+  this->load();
 }
 
 

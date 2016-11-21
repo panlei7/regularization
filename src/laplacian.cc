@@ -17,11 +17,11 @@ namespace {
   const double C0101 = DIAG;
 }
 
-arma::mat CentralDifference(const arma::mat& data,
-                           int ni1,
-                           int ni2,
-                           int nk1,
-                           int nk2)
+arma::mat laplacian2d(const arma::mat& data,
+                            int ni1,
+                            int ni2,
+                            int nk1,
+                            int nk2)
 {
   arma::mat ret(arma::size(data), arma::fill::zeros);
   ret.submat(ni1, nk1, ni2, nk2) =

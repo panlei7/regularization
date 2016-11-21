@@ -16,11 +16,13 @@ int main(int argc, char *argv[])
   nd.cal_fitness();
   nd.cal_gradient();
   nd.print_fitness("norm damping");
+  nd.save();
 
   DerivativeDamping dd(filenm);
   dd.cal_fitness();
   dd.cal_gradient();
   dd.print_fitness("derivative damping");
+  dd.save();
 
   return 0;
 }

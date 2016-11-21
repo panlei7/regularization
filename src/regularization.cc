@@ -6,16 +6,16 @@
 #include <iostream>
 
 
-Regularization::Regularization(std::string &filenm):
+Regularization::Regularization(const std::string &filenm):
   fitness_(0.)
 {
   YAML::Node config = YAML::LoadFile(filenm);
 
   ni_ = config["ni"].as<int>();
   nk_ = config["nk"].as<int>();
-  nx_ = config["nx"].as<int>();
-  nz_ = config["nz"].as<int>();
   nplus_ = config["nplus"].as<int>();
+  nx_ = ni_ + nplus_*2;
+  nz_ = nk_ + nplus_*2;
 
   ni1_ = nplus_;
   ni2_ = ni1_ + ni_ - 1;
@@ -35,7 +35,7 @@ namespace
 {
   void load_hdf5(arma::mat& data, std::string& filenm)
   {
-    data.load(filenm, arma::hdf5_binary);
+    data.load(filenm);
   }
 }
 
@@ -53,7 +53,7 @@ void Regularization::save(std::string& filenm)
 }
 
 
-void Regularization::print_fitness(std::string& s)
+void Regularization::print_fitness(const std::string& s) const
 {
   std::cout << "The fitness of the "
             << s

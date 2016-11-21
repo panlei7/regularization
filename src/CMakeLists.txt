@@ -5,6 +5,10 @@ add_library(reg_lib
   norm_damping.cc
   )
 
+include_directories(
+  ${CMAKE_SOURCE_DIR}/src
+  )
+
 target_link_libraries(reg_lib
   ${ARMADILLO_LIBRARIES}
   ${YAML_CPP_LIBRARIES}

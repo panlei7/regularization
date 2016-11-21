@@ -7,7 +7,7 @@
 class DerivativeDamping: public Regularization
 {
 public:
-  explicit DerivativeDamping(std::string &filenm);
+  explicit DerivativeDamping(const std::string &filenm);
 
   void cal_fitness() override;
   void cal_gradient() override;

@@ -14,5 +14,6 @@ file_umodel: umodel.h5
 width_square: 6
 center_square: [10, 10]
 
+# output
 file_norm: norm.h5
 file_deriv: deriv.h5

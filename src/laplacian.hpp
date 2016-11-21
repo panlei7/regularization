@@ -1,5 +1,5 @@
-#ifndef REG_DIFFERENCE_H_
-#define REG_DIFFERENCE_H_
+#ifndef REG_LAPLACIAN_H_
+#define REG_LAPLACIAN_H_
 
 #include <armadillo>
 

@@ -5,12 +5,13 @@
 #include <armadillo>
 #include <yaml-cpp/yaml.h>
 
-DerivativeDamping::DerivativeDamping(std::string &filenm):
+DerivativeDamping::DerivativeDamping(const std::string &filenm):
   Regularization(filenm)
 {
   YAML::Node config = YAML::LoadFile(filenm);
   output_file_ = config["file_deriv"].as<std::string>();
 
+  this->load();
   laplacian_ = laplacian2d(umodel_-rmodel_, ni1_, ni2_, nk1_, nk2_);
 }
 

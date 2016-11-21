@@ -7,7 +7,7 @@
 class NormDamping: public Regularization
 {
 public:
-  explicit NormDamping(std::string &filenm);
+  explicit NormDamping(const std::string &filenm);
 
   void cal_fitness() override;
   void cal_gradient() override;

@@ -7,13 +7,13 @@
 class Regularization
 {
 public:
-  explicit Regularization(std::string& filenm);
-  void load();
-  virtual void cal_fitness();
-  virtual void cal_gradient();
-  void print_fitness(std::string& method);
+  explicit Regularization(const std::string& filenm);
+  virtual void cal_fitness() = 0;
+  virtual void cal_gradient() = 0;
+  void print_fitness(const std::string& method) const;
 
 protected:
+  void load();
   void save(std::string &filenm);
 
   int ni_;
