@@ -7,7 +7,11 @@
 class Regularization
 {
 public:
-  Regularization(std::string &filenm);
+  explicit Regularization(std::string &filenm);
+
+protected:
+  void load(std::string &filenm);
+  void save(std::string &filenm);
 
 private:
   int ni_;
@@ -15,6 +19,9 @@ private:
   int nx_;
   int nz_;
   int nplus_;
+  arma::mat data_;
+  arma::mat gradient_;
+  double fitness_;
 };
 
 #endif
