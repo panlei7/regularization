@@ -17,7 +17,7 @@ class Model:
 
     def save(self, filenm):
         h5f = h5py.File(filenm, 'w')
-        h5f.create_dataset('dataset_1', data=self.data)
+        h5f.create_dataset('dataset', data=self.data)
         h5f.close()
 
 
