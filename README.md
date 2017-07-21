@@ -57,4 +57,4 @@ First of all, install all dependencies.
 
 ## Results
 
-The details are in [my blog](http://panlei.today/2016/11/22/regularization/)
+The details are in [my blog](http://panlei.me/2016/11/22/regularization/)
